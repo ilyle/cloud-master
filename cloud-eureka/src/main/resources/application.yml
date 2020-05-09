@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: cloud-registry
+
+server:
+  port: 8001
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka/
+
