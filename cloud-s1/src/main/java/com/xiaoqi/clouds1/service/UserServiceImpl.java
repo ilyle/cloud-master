@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService {
         } else {
             String token = Md5Util.getMD5Str(username + user.getUid() + ts);
             long tsTokenExpire = ts + Constant.TS_3_DAYS;
+            user.setIsLogin(true); // 更新为登录状态
             user.setToken(token); // 更新token
             user.setTsTokenExpire(tsTokenExpire); // 更新token过期时间
             userRepository.save(user);
@@ -34,6 +35,7 @@ public class UserServiceImpl implements UserService {
         if (user != null && ts <= user.getTsTokenExpire()) { // token未过期
             String newToken = Md5Util.getMD5Str(user.getUsername() + user.getUid() + ts);
             long tsTokenExpire = ts + Constant.TS_3_DAYS; // 刷新token过期时间戳
+            user.setIsLogin(true);
             user.setToken(newToken);
             user.setTsTokenExpire(tsTokenExpire);
             userRepository.save(user);
@@ -63,7 +65,6 @@ public class UserServiceImpl implements UserService {
             User newUser = new User();
             long ts = System.currentTimeMillis();
             String uid = Md5Util.getMD5Str(username + ts);
-            uid = "gg-" + uid.substring(0, 20);
             newUser.setUid(uid);
             newUser.setUsername(username);
             newUser.setPassword(password);

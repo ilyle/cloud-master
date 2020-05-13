@@ -11,9 +11,10 @@ public class User {
     private Integer id;
 
     /**
-     * uid
+     * 用户id，唯一
+     * md5(username + ts)
      */
-    private String uid; // md5(username + ts)
+    private String uid;
 
     /**
      * 用户名
@@ -26,7 +27,8 @@ public class User {
     private String password;
 
     /**
-     * MD5(username + password)
+     * 用户登录成功赋予的token，可用于下次自动登录，有效期为3天
+     * MD5(username + uid + ts)
      */
     private String token;
 

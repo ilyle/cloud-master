@@ -10,7 +10,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:8001/eureka
   instance:
-    prefer-ip-address: true
+    prefer-ip-address: true #以IP地址注册到服务中心，相互注册使用IP地址
 zuul:
   host:
     connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
