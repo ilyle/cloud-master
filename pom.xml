@@ -18,13 +18,16 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <project.version>0.0.1-SNAPSHOT</project.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
     </properties>
 
     <modules>
         <module>cloud-eureka</module>
         <module>cloud-gateway</module>
-        <module>cloud-s1</module>
+        <module>cloud-ss</module>
+        <module>cloud-s0</module>
+        <module>cloud-common</module>
     </modules>
 
     <dependencies>
@@ -66,16 +69,42 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>com.xiaoqi</groupId>
+                <artifactId>cloud-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xiaoqi</groupId>
+                <artifactId>cloud-eureka</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xiaoqi</groupId>
+                <artifactId>cloud-gateway</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xiaoqi</groupId>
+                <artifactId>cloud-s0</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xiaoqi</groupId>
+                <artifactId>cloud-ss</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
+
     </build>
 
 </project>

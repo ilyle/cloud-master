@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: cloud-s0
+  profiles:
+    active: dev
+
+system:
+  env: ${spring.profiles.active}
+  version: 1.0.0
+  updatetime: 2020-08-08
+
+
+server:
+  port: 8011
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka
+  instance:
+    prefer-ip-address: true
+
